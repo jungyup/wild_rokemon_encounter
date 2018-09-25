@@ -1,0 +1,24 @@
+.column {
+    margin: auto;
+    float: left;
+}
+
+#gridmap {
+    height: 100%;
+}
+
+#gamemap {
+    width: 100%;
+    height: auto;
+    display: inline-block;
+    text-align: center;
+    margin: auto;
+}
+
+#message {
+    margin: 5px;
+    width: 450px;
+    height: 30px;
+    border: 1px solid lightseagreen;
+    border-radius: 5px;
+}
