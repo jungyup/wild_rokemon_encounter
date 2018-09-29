@@ -64,7 +64,7 @@ class Home extends Component {
         if (e.keyCode === 38) {
             // up arrow
             temp = rows.findIndex(findActive);
-            if (temp-11 > 0) {
+            if (temp-11 >= 0) {
                 if (rokemons.includes(rows[temp-11])) {
                     p.innerHTML = "You Found and Caught " + rows[temp-11];
                 }
@@ -75,8 +75,6 @@ class Home extends Component {
                 rows[temp] = 1;
                 this.setState({index: temp-11});
             }
-            console.log(rows.findIndex(findActive));
-            console.log("38");
         }
         else if (e.keyCode === 40) {
             // down arrow
@@ -92,12 +90,11 @@ class Home extends Component {
                 rows[temp] = 1;
                 this.setState({index: temp+11});
             }
-            console.log("40");
         }
         else if (e.keyCode === 37) {
             // left arrow
             temp = rows.findIndex(findActive);
-            if (temp-1 > 0) {
+            if (temp-1 >= 0) {
                 if (rokemons.includes(rows[temp-1])) {
                     p.innerHTML = "You Found and Caught " + rows[temp-1];
                 }
@@ -108,7 +105,6 @@ class Home extends Component {
                 rows[temp] = 1;
                 this.setState({index: temp-1});
             }
-            console.log("37");
         }
         else if (e.keyCode === 39) {
             // right arrow
@@ -124,7 +120,6 @@ class Home extends Component {
                 rows[temp] = 1;
                 this.setState({index: temp+1});
             }
-            console.log("39");
         }
     };
 
