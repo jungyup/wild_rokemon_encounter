@@ -31,7 +31,7 @@ class Home extends Component {
 
         this.state = {
             position: 0,
-            index: 60
+            count: 0
         };
     }
 
@@ -67,28 +67,40 @@ class Home extends Component {
             if (temp-11 >= 0) {
                 if (rokemons.includes(rows[temp-11])) {
                     p.innerHTML = "You Found and Caught " + rows[temp-11];
+                    this.setState({ count: this.state.count + 1 });
                 }
                 else {
                     p.innerHTML = "Nothing was found!";
                 }
                 rows[temp-11] = 0;
                 rows[temp] = 1;
-                this.setState({index: temp-11});
+                this.setState(this.state);
+            }
+            // if all rokemons are found, alert and refresh the page
+            if (this.state.count === 4) {
+                window.alert("You Found and Caught All Rokemons!");
+                window.location.reload();
             }
         }
         else if (e.keyCode === 40) {
             // down arrow
             temp = rows.findIndex(findActive);
-            if (temp+11 < 120) {
+            if (temp+11 <= 120) {
                 if (rokemons.includes(rows[temp+11])) {
                     p.innerHTML = "You Found and Caught " + rows[temp+11];
+                    this.setState({ count: this.state.count + 1 });
                 }
                 else {
                     p.innerHTML = "Nothing was found!";
                 }
                 rows[temp+11] = 0;
                 rows[temp] = 1;
-                this.setState({index: temp+11});
+                this.setState(this.state);
+            }
+            // if all rokemons are found, alert and refresh the page
+            if (this.state.count === 4) {
+                window.alert("You Found and Caught All Rokemons!");
+                window.location.reload();
             }
         }
         else if (e.keyCode === 37) {
@@ -97,28 +109,40 @@ class Home extends Component {
             if (temp-1 >= 0) {
                 if (rokemons.includes(rows[temp-1])) {
                     p.innerHTML = "You Found and Caught " + rows[temp-1];
+                    this.setState({ count: this.state.count + 1 });
                 }
                 else {
                     p.innerHTML = "Nothing was found!";
                 }
                 rows[temp-1] = 0;
                 rows[temp] = 1;
-                this.setState({index: temp-1});
+                this.setState(this.state);
+            }
+            // if all rokemons are found, alert and refresh the page
+            if (this.state.count === 4) {
+                window.alert("You Found and Caught All Rokemons!");
+                window.location.reload();
             }
         }
         else if (e.keyCode === 39) {
             // right arrow
             temp = rows.findIndex(findActive);
-            if (temp+1 < 120) {
+            if (temp+1 <= 120) {
                 if (rokemons.includes(rows[temp+1])) {
                     p.innerHTML = "You Found and Caught " + rows[temp+1];
+                    this.setState({ count: this.state.count + 1 });
                 }
                 else {
                     p.innerHTML = "Nothing was found!";
                 }
                 rows[temp+1] = 0;
                 rows[temp] = 1;
-                this.setState({index: temp+1});
+                this.setState(this.state);
+            }
+            // if all rokemons are found, alert and refresh the page
+            if (this.state.count === 4) {
+                window.alert("You Found and Caught All Rokemons!");
+                window.location.reload();
             }
         }
     };
@@ -143,6 +167,9 @@ class Home extends Component {
         return(
             <div id="gamemap" className="container">
                 <div id="message"></div>
+                <div id="count">
+                    <p>Total Rokemon Found: {this.state.count} </p>
+                </div>
                 {rows.map((item, index) => {
                     if (item === this.state.position) {
                         return <div className="column" style={active} key={index}></div>
@@ -150,44 +177,10 @@ class Home extends Component {
                         return <div className="column" style={style} key={index}></div>
                     }
                 })}
+
             </div>
         );
     }
 }
 
 export default Home;
-
-// var randomItem = myArray[Math.floor(Math.random()*myArray.length)];
-
-/*<div data-role="tile"><img src="https://assets-cdn.github.com/images/modules/open_graph/github-octocat.png" className="icon" /></div>*/
-/*<div id="gamemap" className="container">
-    <div id="message"></div>
-    <div id="grid">
-        <div style={style}></div>
-        <div style={style}></div>
-    </div>
-
-</div>
-
-
-        // let columns = [];
-
-        // for (var i = 0; i < 11; i++) {
-        //     columns.push(<span className="column" style={style} key={i}></span>);
-        // }
-<div className="row" key={index}>
-                        {columns}
-                    </div>
-*/
-// createTile = () => {
-//
-//     let rows = [];
-//     let columns = [];
-//
-//     for (var i = 0; i < 11; i++) {
-//         rows.push(<span className="row" key={i}></span>);
-//     }
-//
-//     return rows;
-//
-// };

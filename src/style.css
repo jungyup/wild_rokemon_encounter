@@ -10,15 +10,24 @@
 #gamemap {
     width: 100%;
     height: auto;
-    display: inline-block;
     text-align: center;
-    margin: auto;
+    margin-bottom: 10px;
 }
 
 #message {
     margin: 5px;
-    width: 450px;
+    width: 45%;
     height: 30px;
     border: 1px solid lightseagreen;
     border-radius: 5px;
+    float: left;
+}
+
+#count {
+    margin: 5px;
+    width: 45%;
+    height: 30px;
+    border-radius: 5px;
+    float: left;
+    font-weight: bold;
 }
