@@ -31,7 +31,8 @@ class Home extends Component {
 
         this.state = {
             position: 0,
-            count: 0
+            count: 0,
+            move: 0
         };
     }
 
@@ -45,7 +46,6 @@ class Home extends Component {
                     second[position] = first[i];
                 }
             }
-            console.log(rows);
         }
 
         return second;
@@ -74,7 +74,7 @@ class Home extends Component {
                 }
                 rows[temp-11] = 0;
                 rows[temp] = 1;
-                this.setState(this.state);
+                this.setState({ move: this.state.move + 1 });
             }
             // if all rokemons are found, alert and refresh the page
             if (this.state.count === 4) {
@@ -95,7 +95,7 @@ class Home extends Component {
                 }
                 rows[temp+11] = 0;
                 rows[temp] = 1;
-                this.setState(this.state);
+                this.setState({ move: this.state.move + 1 });
             }
             // if all rokemons are found, alert and refresh the page
             if (this.state.count === 4) {
@@ -116,7 +116,7 @@ class Home extends Component {
                 }
                 rows[temp-1] = 0;
                 rows[temp] = 1;
-                this.setState(this.state);
+                this.setState({ move: this.state.move + 1 });
             }
             // if all rokemons are found, alert and refresh the page
             if (this.state.count === 4) {
@@ -137,7 +137,7 @@ class Home extends Component {
                 }
                 rows[temp+1] = 0;
                 rows[temp] = 1;
-                this.setState(this.state);
+                this.setState({ move: this.state.move + 1 });
             }
             // if all rokemons are found, alert and refresh the page
             if (this.state.count === 4) {
@@ -168,7 +168,7 @@ class Home extends Component {
             <div id="gamemap" className="container">
                 <div id="message"></div>
                 <div id="count">
-                    <p>Total Rokemon Found: {this.state.count} </p>
+                    <p>Total Rokemon Found: {this.state.count}, Total Move: {this.state.move} </p>
                 </div>
                 {rows.map((item, index) => {
                     if (item === this.state.position) {
@@ -177,7 +177,6 @@ class Home extends Component {
                         return <div className="column" style={style} key={index}></div>
                     }
                 })}
-
             </div>
         );
     }

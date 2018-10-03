@@ -9,5 +9,6 @@ This application let user to navigate around the map with the arrow key, and fin
 * If there is Rokemons on the tile, then "You Found and Caught Rokemon" message will be shown in the message box and also the number for the Rokemon that user caught will increase.
 * There are total 4 Rokemons on the map, and once the user find and catch all the Rokemons, then message alert will be shown and it will automatically reload the page.
 
+### The demo can be viewed in http://jungyup.github.io/wild_rokemon_encounter
 
 ###### This application was developed with React
